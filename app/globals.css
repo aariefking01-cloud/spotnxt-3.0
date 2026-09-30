@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Level 0 — Application background */
+    --background: 240 10% 3.5%;
+    /* Level 1 — Primary surfaces */
+    --card: 240 8% 5.5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    /* Level 2 — Elevated cards */
+    --surface-elevated: 240 8% 7%;
+    /* Text */
+    --foreground: 0 0% 98%;
+    --muted-foreground: 240 5% 65%;
+    /* Brand — Electric purple/violet */
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 11%;
+    --accent: 240 5% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 14%;
+    --input: 240 6% 16%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 280 85% 65%;
+    --chart-5: 0 84% 60%;
+    --radius: 0.75rem;
+
+    /* Semantic brand scale */
+    --brand: 262 83% 58%;
+    --brand-foreground: 0 0% 100%;
+    --brand-50: 260 60% 96%;
+    --brand-100: 262 55% 90%;
+    --brand-200: 262 60% 82%;
+    --brand-300: 263 70% 72%;
+    --brand-400: 263 80% 66%;
+    --brand-500: 262 83% 58%;
+    --brand-600: 261 85% 52%;
+    --brand-700: 261 85% 45%;
+    --brand-800: 261 80% 39%;
+    --brand-900: 261 75% 33%;
+
+    /* Prediction — violet */
+    --prediction: 280 85% 65%;
+    --prediction-foreground: 0 0% 100%;
+
+    /* Semantic */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --danger: 0 72% 51%;
+    --danger-foreground: 0 0% 100%;
+
+    /* Light mode (secondary, for toggle) */
+    --light-background: 0 0% 100%;
+    --light-card: 0 0% 100%;
+    --light-foreground: 240 10% 3.9%;
+    --light-primary: 262 83% 52%;
+    --light-border: 240 6% 90%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 262 83% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 3.9%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 262 83% 52%;
+    --chart-1: 262 83% 52%;
+    --chart-2: 199 89% 42%;
+    --chart-3: 43 96% 50%;
+    --chart-4: 280 85% 58%;
+    --chart-5: 0 84% 56%;
+    --brand: 262 83% 52%;
+    --brand-foreground: 0 0% 100%;
+    --prediction: 280 85% 58%;
+    --success: 142 71% 42%;
+    --warning: 38 92% 48%;
+    --danger: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    @apply bg-brand-500/30;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06];
+  }
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-white/[0.06];
+  }
+  .surface-elevated {
+    background: hsl(var(--surface-elevated));
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 via-brand-500 to-prediction bg-clip-text text-transparent;
+  }
+  .gradient-brand {
+    background-image: linear-gradient(135deg, hsl(262 83% 58%), hsl(251 95% 53%));
+  }
+  .gradient-brand-soft {
+    background-image: linear-gradient(135deg, hsl(262 83% 58% / 0.15), hsl(251 95% 53% / 0.1));
+  }
+  .gradient-prediction {
+    background-image: linear-gradient(135deg, hsl(280 85% 65%), hsl(262 83% 58%));
+  }
+  .glow-brand {
+    box-shadow: 0 0 40px -8px hsl(262 83% 58% / 0.4);
+  }
+  .glow-brand-sm {
+    box-shadow: 0 0 20px -4px hsl(262 83% 58% / 0.35);
+  }
+  .glow-prediction {
+    box-shadow: 0 0 40px -8px hsl(280 85% 65% / 0.4);
+  }
+  .border-glow {
+    border: 1px solid hsl(262 83% 58% / 0.2);
+    box-shadow: 0 0 12px -2px hsl(262 83% 58% / 0.15);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, hsl(240 6% 14% / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(240 6% 14% / 0.4) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .dot-pattern {
+    background-image: radial-gradient(hsl(240 6% 18%) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(240 8% 7%) 0%,
+      hsl(240 8% 12%) 50%,
+      hsl(240 8% 7%) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  .radial-glow {
+    background: radial-gradient(circle at 50% 0%, hsl(262 83% 58% / 0.12), transparent 60%);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(240 6% 20%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(262 83% 40%);
+}

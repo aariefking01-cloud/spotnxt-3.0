@@ -1,0 +1,8 @@
+{
+  "name": "DhanushRemix SpotNxt-AI",
+  "description": "Imported from GitHub: aariefking01-cloud/SpotNxt-AI",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
